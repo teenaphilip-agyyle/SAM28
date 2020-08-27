@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'sam-app
+
+  Sample SAM Template for sam-app
+
+  '
+Resources:
+  DynamoDBTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      PrimaryKey:
+        Name: id
+        Type: String
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      SSESpecification:
+        SSEEnabled: true
+  MyFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: hello-world.handler
+      Runtime: nodejs12.x
+      CodeUri: s3://demo-bucket0001/034b44dfc7fb2608f66101c6b0a69e0c
