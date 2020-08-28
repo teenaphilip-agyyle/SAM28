@@ -6,7 +6,7 @@ Description: >
 
 
 Resources:
-    DynamoDBTable:
+    MyDynamoDBTable:
       Type: AWS::Serverless::SimpleTable
       Properties:
         PrimaryKey:
@@ -19,7 +19,7 @@ Resources:
           SSEEnabled: true
 
 
-    MyFunction:
+    MyLambdaFunction:
       Type: 'AWS::Serverless::Function'
       Properties:
         Handler: hello-world.handler
